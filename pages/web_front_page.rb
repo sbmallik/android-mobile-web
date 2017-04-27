@@ -19,12 +19,19 @@ class FrontPage
     @driver.first_ele('menu-nav-list')
   end
 
-  def life_link
-    @driver.first_ele('life')
+  def section_link(name)
+    @section_links_array = @driver.find_elements(:class_name, 'nav-item-link')
+    @section_links_array[self.index_for(@section_links_array, name)]
   end
 
-  def life_logo
-    @driver.first_ele('header-life')
+  def index_for(array, name)
+    array.find_index do |element|
+      element.text.strip.downcase == name.downcase
+    end
+  end
+
+  def front_logo(front_name)
+    @driver.first_ele("header-#{front_name.strip.downcase}")
   end
 
   def lead_asset_link

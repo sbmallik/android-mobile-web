@@ -17,6 +17,7 @@ RSpec.configure do |config|
   config.filter_run_excluding work_in_progress: true
 
   config.before(:each) do |bonnie_before|
+    @base_url = ENV['ACCEPTANCE_TEST_HOST'] || 'https://www.usatoday.com'
     @eyes = Applitools::Eyes.new
     @eyes.api_key = ENV['APPLITOOLS_API_KEY']
     @eyes.match_level = Applitools::Eyes::MATCH_LEVEL[:content]
@@ -41,9 +42,7 @@ RSpec.configure do |config|
       }
 
       local_caps = {
-        clearSystemFiles: 'true',
-#          fullReset: 'true',
-#          automationName: ENV['automationName']
+        clearSystemFiles: 'true'
       }
 
       if ENV['REMOTE']
@@ -79,6 +78,14 @@ RSpec.configure do |config|
 
     @eyes.abort_if_not_closed
     @driver.driver_quit
+  end
+
+  # Navigate to the target URL
+  def visit_url(path)
+    unless path.include? "://"
+      path = @base_url.to_s + path
+    end
+    @selenium_driver.navigate.to(path)
   end
 
   # Explicit wait definition

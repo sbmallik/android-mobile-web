@@ -144,7 +144,7 @@ It is assumed that the Android Virtual device mentioned above already exists per
 The typical command for local test execution is
 
   ```
-  $ rake Local_Android test_options="--tag @tagname" app=/Full_path_to_the_directory_containing_the_app/app-azcentral_sports-debug.apk
+  $ rake Local_Android test_options="--tag @tagname"
   ```
 The log output settings are conigured in the `.rspec` file.
 
