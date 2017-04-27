@@ -1,11 +1,11 @@
-# Getting Started with Bonnie E2E Testing
+# Getting Started with Android Mobile-web E2E Testing
 
 ## Setup Appium
 To develop and execute Appium tests local or remotely (Sauce Labs) need to setup your local machine. Go to http://appium.io and scroll to the bottom of the home front to reference how to configure your local machine.
 
 In order to setup the local Appium GUI tool, follow screen instructions after clicking **Download Appium** link in the above page. 
 
-### Android
+### Android Support
 To build apps for local testing (from dev branch), inspect elements on the mobile app, or create virtual devices for local testing.
 * Install [Android Studio](https://developer.android.com/studio/index.html)
 
@@ -122,7 +122,7 @@ The tags are provided in the command line as follows:
 
 ## Test execution in Local Environment
 
-In order to run the tests in local environment simply execute the rake task `Local_Android` optionally with the tag filters. The output formating options are set in the `.rspec` file. All tests are executed in sequential manner (usig `rspec`). In addition, the application path name should be provided.
+In order to run the tests in local environment simply execute the rake task `Local_Android` optionally with the tag filters. The output formating options are set in the `.rspec` file. All tests are executed in sequential manner (using `rspec`).
 
 ### Start Appium and Android Emulator
 Please note that the *Appium server* and *Android emulator* **must** be started prior to test execution. The _appium server_ can be installed through `npm` in global scope. The command to install the package is
